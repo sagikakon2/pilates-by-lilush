@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { contactInfo, whatsappLink } from "@/data/content";
 import { Phone, Mail, Send } from "lucide-react";
-import logo from "@/Assets/BE86F7DC-B951-4A25-86A7-CBDA821BFC34.png";
+import logo from "@/Assets/pilates-logo-final.png";
 import AnimatedSection from "@/components/AnimatedSection";
 
 export default function FooterContact() {
@@ -52,7 +52,7 @@ export default function FooterContact() {
           </AnimatedSection>
 
           <AnimatedSection variant="slideLeft" delay={0.2} className="flex flex-col items-center md:items-start justify-center gap-10">
-            <img src={logo} alt="Pilates by Lilush" className="w-32 h-auto brightness-0 invert opacity-40" />
+            <img src={logo} alt="Pilates by Lilush" className="w-44 h-auto brightness-0 invert opacity-40" />
             <div className="flex flex-col items-center md:items-end gap-5">
               <p className="font-display font-bold text-xl text-center md:text-right text-white/90">
                 {contactInfo.name} – {contactInfo.brand}

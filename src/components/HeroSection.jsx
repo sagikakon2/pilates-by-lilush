@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { heroContent, whatsappLink } from "@/data/content";
-import logo from "@/Assets/BE86F7DC-B951-4A25-86A7-CBDA821BFC34.png";
+import logo from "@/Assets/pilates-logo-final.png";
 import { ChevronDown, ArrowLeft } from "lucide-react";
 import { GlassOrb, MagneticButton } from "@/components/AnimatedSection";
 
@@ -41,7 +41,7 @@ export default function HeroSection() {
           src={logo}
           alt="Pilates by Lilush"
           fetchPriority="high"
-          className="w-24 sm:w-32 h-auto mx-auto mb-10 drop-shadow-sm"
+          className="w-40 sm:w-52 h-auto mx-auto mb-10 drop-shadow-sm"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}

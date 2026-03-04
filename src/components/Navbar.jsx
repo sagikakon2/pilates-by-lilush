@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { whatsappLink } from "@/data/content";
-import logo from "@/Assets/BE86F7DC-B951-4A25-86A7-CBDA821BFC34.png";
+import logo from "@/Assets/pilates-logo-final.png";
 
 const links = [
   { label: "למה בבית?", href: "#why" },
@@ -99,7 +99,7 @@ export default function Navbar() {
           </div>
 
           <a href="#" className="flex items-center">
-            <img src={logo} alt="Pilates by Lilush" className="h-10 w-auto" />
+            <img src={logo} alt="Pilates by Lilush" className="h-16 w-auto" />
           </a>
 
           <button
@@ -124,7 +124,7 @@ export default function Navbar() {
           >
             <div className="flex items-center justify-between px-6 h-18">
               <a href="#" onClick={() => setMenuOpen(false)} className="flex items-center">
-                <img src={logo} alt="Pilates by Lilush" className="h-10 w-auto" />
+                <img src={logo} alt="Pilates by Lilush" className="h-16 w-auto" />
               </a>
               <button
                 onClick={() => setMenuOpen(false)}
