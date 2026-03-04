@@ -26,7 +26,7 @@ export default function ClassModal({ classItem, onClose }) {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
       >
-        <div className="absolute inset-0 bg-charcoal-dark/40 backdrop-blur-xl" style={{ WebkitBackdropFilter: "blur(20px)" }} />
+        <div className="absolute inset-0 bg-charcoal-dark/40 backdrop-blur-xl" style={{ WebkitBackdropFilter: "blur(20px)" }} onClick={onClose} />
 
         <motion.div
           role="dialog"
