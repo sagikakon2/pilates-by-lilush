@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { whatsappLink } from "@/data/content";
@@ -6,31 +6,45 @@ import logo from "@/Assets/pilates-logo-final.png";
 
 const links = [
   { label: "למה בבית?", href: "#why" },
+  { label: "אודות", href: "#about" },
   { label: "האימונים", href: "#vod-catalog" },
   { label: "ציוד", href: "#shop" },
-  { label: "אודות", href: "#about" },
   { label: "יצירת קשר", href: "#contact" },
 ];
 
-const sections = ["why", "vod-catalog", "shop", "about", "contact"];
+const sections = ["why", "about", "vod-catalog", "shop", "contact"];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const debounceTimer = useRef(null);
+  const lastDetected = useRef("");
 
-  const onScroll = useCallback(() => {
+  const detectSection = useCallback(() => {
     setScrolled(window.scrollY > 40);
 
+    let found = "";
     for (const id of sections) {
-      const el = document.getElementById(id);
-      if (el) {
-        const rect = el.getBoundingClientRect();
-        if (rect.top <= 120 && rect.bottom > 120) {
-          setActiveSection(`#${id}`);
-          return;
+      const section = document.getElementById(id);
+      if (section) {
+        const heading = section.querySelector("h1, h2, h3, [class*='heading']");
+        const target = heading || section;
+        const rect = target.getBoundingClientRect();
+        const viewportH = window.innerHeight;
+        if (rect.top < viewportH && rect.bottom > 0) {
+          found = `#${id}`;
+          break;
         }
       }
+    }
+
+    if (found !== lastDetected.current) {
+      lastDetected.current = found;
+      if (debounceTimer.current) clearTimeout(debounceTimer.current);
+      debounceTimer.current = setTimeout(() => {
+        setActiveSection(found);
+      }, 100);
     }
   }, []);
 
@@ -40,14 +54,17 @@ export default function Navbar() {
       if (!ticking) {
         ticking = true;
         requestAnimationFrame(() => {
-          onScroll();
+          detectSection();
           ticking = false;
         });
       }
     };
     window.addEventListener("scroll", throttled, { passive: true });
-    return () => window.removeEventListener("scroll", throttled);
-  }, [onScroll]);
+    return () => {
+      window.removeEventListener("scroll", throttled);
+      if (debounceTimer.current) clearTimeout(debounceTimer.current);
+    };
+  }, [detectSection]);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
