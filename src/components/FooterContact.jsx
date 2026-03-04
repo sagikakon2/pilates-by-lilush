@@ -32,8 +32,8 @@ export default function FooterContact() {
           <p className="text-white/50 text-lg">נשמח לשמוע מכם</p>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
-          <AnimatedSection variant="slideRight" delay={0.1}>
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-10 md:gap-12 items-start">
+          <AnimatedSection variant="slideRight" delay={0.1} className="w-full md:pt-8">
             <form onSubmit={handleSubmit} className="space-y-5" dir="rtl">
               <input type="text" name="name" placeholder="שם מלא" required value={form.name} onChange={handleChange} className={`${inputCls} text-right`} />
               <input type="tel" name="phone" placeholder="טלפון" required dir="ltr" value={form.phone} onChange={handleChange} className={`${inputCls} text-right placeholder:text-right`} />
@@ -51,9 +51,9 @@ export default function FooterContact() {
             </form>
           </AnimatedSection>
 
-          <AnimatedSection variant="slideLeft" delay={0.2} className="flex flex-col items-center justify-center gap-8">
-            <img src={logo} alt="Pilates by Lilush" className="w-[28rem] sm:w-[32rem] max-w-full h-auto brightness-0 invert opacity-50" />
-            <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-lux-pink/15 to-transparent" />
+          <AnimatedSection variant="slideLeft" delay={0.2} className="flex flex-col items-center justify-start gap-6 w-full">
+            <img src={logo} alt="Pilates by Lilush" className="w-full max-w-md h-auto brightness-0 invert opacity-50" />
+            <div className="w-3/4 h-[1px] bg-gradient-to-r from-transparent via-lux-pink/15 to-transparent" />
             <p className="font-display font-bold text-xl text-center text-white/90">
               {contactInfo.name} – {contactInfo.brand}
             </p>
