@@ -51,28 +51,26 @@ export default function FooterContact() {
             </form>
           </AnimatedSection>
 
-          <AnimatedSection variant="slideLeft" delay={0.2} className="flex flex-col items-center md:items-start justify-center gap-10">
-            <img src={logo} alt="Pilates by Lilush" className="w-44 h-auto brightness-0 invert opacity-40" />
-            <div className="flex flex-col items-center md:items-end gap-5">
-              <p className="font-display font-bold text-xl text-center md:text-right text-white/90">
-                {contactInfo.name} – {contactInfo.brand}
-              </p>
-              <div className="inline-flex flex-col gap-4">
-                <a href={`tel:${contactInfo.phone}`} className="flex items-center gap-3 text-white/60 hover:text-white transition-colors duration-300 group">
-                  <div className="w-12 h-12 rounded-2xl glass-dark flex items-center justify-center shrink-0 group-hover:border-lux-pink/20 transition-colors duration-300">
-                    <Phone className="w-4 h-4" />
-                  </div>
-                  <span className="font-medium">{contactInfo.phone}</span>
-                </a>
-                <a href={`mailto:${contactInfo.email}`} className="flex items-center gap-3 text-white/60 hover:text-white transition-colors duration-300 group">
-                  <div className="w-12 h-12 rounded-2xl glass-dark flex items-center justify-center shrink-0 group-hover:border-lux-pink/20 transition-colors duration-300">
-                    <Mail className="w-4 h-4" />
-                  </div>
-                  <span className="font-medium">{contactInfo.email}</span>
-                </a>
-              </div>
-            </div>
+          <AnimatedSection variant="slideLeft" delay={0.2} className="flex flex-col items-center justify-center gap-8">
+            <img src={logo} alt="Pilates by Lilush" className="w-[28rem] sm:w-[32rem] max-w-full h-auto brightness-0 invert opacity-50" />
             <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-lux-pink/15 to-transparent" />
+            <p className="font-display font-bold text-xl text-center text-white/90">
+              {contactInfo.name} – {contactInfo.brand}
+            </p>
+            <div className="inline-flex flex-col lg:flex-row gap-4 lg:gap-6">
+              <a href={`tel:${contactInfo.phone}`} className="flex items-center gap-3 text-white/60 hover:text-white transition-colors duration-300 group">
+                <div className="w-12 h-12 rounded-2xl glass-dark flex items-center justify-center shrink-0 group-hover:border-lux-pink/20 transition-colors duration-300">
+                  <Phone className="w-4 h-4" />
+                </div>
+                <span className="font-medium">{contactInfo.phone}</span>
+              </a>
+              <a href={`mailto:${contactInfo.email}`} className="flex items-center gap-3 text-white/60 hover:text-white transition-colors duration-300 group">
+                <div className="w-12 h-12 rounded-2xl glass-dark flex items-center justify-center shrink-0 group-hover:border-lux-pink/20 transition-colors duration-300">
+                  <Mail className="w-4 h-4" />
+                </div>
+                <span className="font-medium">{contactInfo.email}</span>
+              </a>
+            </div>
           </AnimatedSection>
         </div>
       </div>
